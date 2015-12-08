@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'pusher'
 gem 'dotenv-rails'
 gem 'purecss-rails'
+gem 'sucker_punch'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
