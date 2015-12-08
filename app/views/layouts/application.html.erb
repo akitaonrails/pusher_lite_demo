@@ -10,7 +10,7 @@
   <script src="//js.pusher.com/3.0/pusher.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-route="application/pages/<%= controller.controller_name %>/<%= controller.action_name %>">
 
 <div class="pure-menu pure-menu-horizontal">
     <span class="pure-menu-heading">Pusher Client Demo</span>

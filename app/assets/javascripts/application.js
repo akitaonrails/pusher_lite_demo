@@ -10,14 +10,23 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require almond
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require phoenix
 //= require_tree .
 
+require(['application/boot']);
+
+/*
 $(document).on("page:change", function(){
   var pusherKey = $("meta[name=pusher_key]").attr("content");
-  var pusher = new Pusher(pusherKey, { encrypted: true });
+  var pusher = new Pusher(pusherKey, {
+    encrypted: false,
+    enabledTransports: ["sockjs"],
+    wsHost: "localhost",
+    wsPort: "4000" });
 
   var pusherChannel = $("meta[name=pusher_channel]").attr("content");
   var channel = pusher.subscribe(pusherChannel);
@@ -27,3 +36,4 @@ $(document).on("page:change", function(){
     $(".message-receiver").append(new_line);
   });
 });
+*/

@@ -10,7 +10,12 @@ gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+#gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', github: 'rails/sass-rails', branch: 'master'
+gem 'sprockets-rails', github: 'rails/sprockets-rails', branch: 'master'
+gem 'sprockets', github: 'rails/sprockets', branch: 'master'
+gem 'babel-transpiler'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -49,3 +54,6 @@ group :development do
   gem 'spring'
 end
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-almond'
+end
