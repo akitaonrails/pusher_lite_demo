@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PusherLiteDemo</title>
+  <title>Pusher Lite Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="pusher_key" content="<%= Rails.application.secrets.pusher_key %>">
+  <meta name="pusher_channel" content="<%= Rails.application.secrets.pusher_channel %>">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="//js.pusher.com/3.0/pusher.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>

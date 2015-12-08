@@ -4,6 +4,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:pusher_event).permit(:message)
+    params.require(:pusher_event).permit(:name, :message)
   end
 end
