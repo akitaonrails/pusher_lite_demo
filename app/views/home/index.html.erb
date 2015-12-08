@@ -1,0 +1,7 @@
+<%= form_for @event, url: events_path, remote: true, html: {class: "pure-form pure-form-stacked"} do |f| %>
+  <fieldset>
+    <legend>Send your message remotely</legend>
+    <%= f.text_field :message, placeholder: "Message" %>
+    <%= f.submit "Send message", class: "pure-button pure-button-primary" %>
+  </fieldset>
+<% end %>

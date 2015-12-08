@@ -2,13 +2,35 @@
 <html>
 <head>
   <title>PusherLiteDemo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="pure-menu pure-menu-horizontal">
+    <span class="pure-menu-heading">Pusher Client Demo</span>
+
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="http://www.akitaonrails.com" class="pure-menu-link">AkitaOnRails.com</a></li>
+        <li class="pure-menu-item"><a href="http://www.codeminer42.com" class="pure-menu-link">Codeminer 42</a></li>
+        <li class="pure-menu-item"><a href="http://www.rubyconf.com.br" class="pure-menu-link">Rubyconf Brasil</a></li>
+    </ul>
+</div>
+
+<div class="pure-g-r">
+  <div class="pure-u-1-3 message-form">
+    <%= yield %>
+  </div>
+  
+  <div class="pure-u-1-3 message-receiver">
+    <ul class="events">
+      
+    </ul>
+  </div>
+</div>
+
 
 </body>
 </html>

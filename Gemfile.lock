@@ -78,6 +78,8 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
+    purecss-rails (0.6.0)
+      railties (>= 3.2.6, < 5)
     pusher (0.15.2)
       httpclient (~> 2.5)
       multi_json (~> 1.0)
@@ -156,6 +158,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
+  purecss-rails
   pusher
   rails (= 4.2.5)
   sass-rails (~> 5.0)
