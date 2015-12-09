@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'jwt'
 gem 'pusher'
 gem 'dotenv-rails'
 gem 'purecss-rails'
