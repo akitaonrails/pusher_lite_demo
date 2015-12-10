@@ -7,7 +7,7 @@ class PusherEvent
   validates :name, :message, presence: true
 
   def save
-    uri = URI.parse("#{Rails.application.secrets.pusher_url}/events")
+    uri = URI.parse("#{Rails.application.secrets.pusher_url}/api/events")
     Net::HTTP.post_form(uri, {
       "topic" => Rails.application.secrets.pusher_channel,
       "event" => "msg",
