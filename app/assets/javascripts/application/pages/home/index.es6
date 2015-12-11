@@ -12,7 +12,7 @@ export default class Index {
     let guardianToken = $("meta[name=guardian-token]").attr("content")
     let csrfToken     = $("meta[name=guardian-csrf]").attr("content")
 
-    let pusherKey     = $("meta[name=pusher_key]").attr("content")
+    let pusherApp     = $("meta[name=pusher_app_id]").attr("content")
     let pusherChannel = $("meta[name=pusher_channel]").attr("content")
 
     let socket = new Socket("ws://localhost:4000/socket", {
@@ -21,13 +21,18 @@ export default class Index {
     socket.connect()
 
     // Now that you are connected, you can join channels with a topic:
-    let channel = socket.channel(pusherChannel, {})
+    let channel = socket.channel(`public:${pusherApp}`, {})
     channel.join()
       .receive("ok", resp => { console.log("Joined successfully", resp) })
       .receive("error", resp => { console.log("Unable to join", resp) })
 
-    channel.on("msg", data => {
+    channel.on(`${pusherChannel}:msg`, data => {
       let new_line = `<p><strong>${data.name}<strong>: ${data.message}</p>`
+      $(".message-receiver").append(new_line)
+    })
+
+    channel.on("msg", data => {
+      let new_line = `<p><strong>Broadcast to all channels</strong>: ${data.message}</p>`
       $(".message-receiver").append(new_line)
     })
   }

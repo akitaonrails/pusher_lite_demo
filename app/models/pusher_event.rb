@@ -3,22 +3,21 @@ require "uri"
 class PusherEvent
   include ActiveModel::Model
 
-  attr_accessor :name, :message
+  attr_accessor :name, :message, :broadcast
   validates :name, :message, presence: true
 
   def save
-    uri = URI.parse("#{Rails.application.secrets.pusher_url}/api/events")
-    Net::HTTP.post_form(uri, {
-      "topic" => Rails.application.secrets.pusher_channel,
-      "event" => "msg",
-      "payload" => {"name" => name, "message" => message}.to_json
-    })
-  end
+    topic = if broadcast == "1"
+      "#general"
+    else
+      Rails.application.secrets.pusher_channel
+    end
 
-  def save_pusher
-    Pusher.trigger(Rails.application.secrets.pusher_channel, 'new_message', {
-      name: name,
-      message: message
+    Net::HTTP.post_form(PusherLite.uri, {
+      "topic" => topic,
+      "event" => "msg",
+      "scope" => "public",
+      "payload" => {"name" => name, "message" => message}.to_json
     })
   end
 end

@@ -3,6 +3,7 @@
     <legend>Send your message remotely</legend>
     <%= f.text_field :name, placeholder: "Name" %>
     <%= f.text_field :message, placeholder: "Message" %>
+    <%= f.check_box :broadcast %>
     <%= f.submit "Send message", class: "pure-button pure-button-primary" %>
   </fieldset>
 <% end %>
