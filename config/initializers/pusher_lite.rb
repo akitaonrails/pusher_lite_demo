@@ -5,7 +5,7 @@ module PusherLite
     app_id = Rails.application.secrets.pusher_app_id
     url    = Rails.application.secrets.pusher_url
 
-    uri = "http://#{key}:#{secret}@#{url}/api/apps/#{app_id}/events"
+    uri = "https://#{key}:#{secret}@#{url}/api/apps/#{app_id}/events"
     URI.parse(uri)
   end
 end

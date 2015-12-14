@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.3'
+
 gem 'jwt'
 gem 'dotenv-rails'
 gem 'purecss-rails'
@@ -8,7 +10,8 @@ gem 'sucker_punch'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+gem 'pg'
 # Use SCSS for stylesheets
 #gem 'sass-rails', '~> 5.0'
 gem 'sass-rails', github: 'rails/sass-rails', branch: 'master'
@@ -56,4 +59,9 @@ end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-almond'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'puma'
 end

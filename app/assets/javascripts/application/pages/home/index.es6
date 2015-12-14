@@ -12,10 +12,11 @@ export default class Index {
     let guardianToken = $("meta[name=guardian-token]").attr("content")
     let csrfToken     = $("meta[name=guardian-csrf]").attr("content")
 
+    let pusherHost    = $("meta[name=pusher_host]").attr("content")
     let pusherApp     = $("meta[name=pusher_app_id]").attr("content")
     let pusherChannel = $("meta[name=pusher_channel]").attr("content")
 
-    let socket = new Socket("ws://localhost:4000/socket", {
+    let socket = new Socket(`wss://${pusherHost}/socket`, {
       params: { guardian_token: guardianToken, csrf_token: csrfToken }
     })
     socket.connect()
