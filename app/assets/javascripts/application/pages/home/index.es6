@@ -16,7 +16,7 @@ export default class Index {
     let pusherApp     = $("meta[name=pusher_app_id]").attr("content")
     let pusherChannel = $("meta[name=pusher_channel]").attr("content")
 
-    let socket = new Socket(`wss://${pusherHost}/socket`, {
+    let socket = new Socket(`ws://${pusherHost}/socket`, {
       params: { guardian_token: guardianToken, csrf_token: csrfToken }
     })
     socket.connect()
